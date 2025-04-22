@@ -10,9 +10,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import AuthDialog from "./auth/AuthDialog";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -47,10 +49,17 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white">
+            <Button 
+              variant="outline" 
+              className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
+              onClick={() => setAuthDialogOpen(true)}
+            >
               Войти
             </Button>
-            <Button className="bg-red-600 hover:bg-red-700 text-white">
+            <Button 
+              className="bg-red-600 hover:bg-red-700 text-white"
+              onClick={() => setAuthDialogOpen(true)}
+            >
               Присоединиться
             </Button>
           </div>
@@ -84,16 +93,31 @@ const Header = () => {
               ))}
             </div>
             <div className="flex flex-col space-y-3 pt-3 border-t">
-              <Button variant="outline" className="border-red-600 text-red-600 w-full justify-start">
+              <Button 
+                variant="outline" 
+                className="border-red-600 text-red-600 w-full justify-start"
+                onClick={() => {
+                  setAuthDialogOpen(true);
+                  setIsOpen(false);
+                }}
+              >
                 Войти
               </Button>
-              <Button className="bg-red-600 hover:bg-red-700 text-white w-full justify-start">
+              <Button 
+                className="bg-red-600 hover:bg-red-700 text-white w-full justify-start"
+                onClick={() => {
+                  setAuthDialogOpen(true);
+                  setIsOpen(false);
+                }}
+              >
                 Присоединиться
               </Button>
             </div>
           </div>
         )}
       </div>
+      
+      <AuthDialog isOpen={authDialogOpen} onOpenChange={setAuthDialogOpen} />
     </header>
   );
 };
