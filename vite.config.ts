@@ -19,7 +19,10 @@ export default defineConfig({
     port: 5173,
     allowedHosts: true,
     hmr: {
-      overlay: false // Disables the error overlay if you only want console errors
+      // Решение проблемы с WebSocket
+      clientPort: 443, // Использовать HTTPS порт для WebSocket
+      host: 'preview--uroki-pobedy-online.poehali.dev', // Указываем хост для WebSocket
+      protocol: 'wss' // Использовать защищенный WebSocket
     }
   },
 });

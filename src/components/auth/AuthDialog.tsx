@@ -147,7 +147,7 @@ const AuthDialog = ({ isOpen, onOpenChange, trigger }: AuthDialogProps) => {
               </div>
               
               <div className="flex items-center space-x-2">
-                <Checkbox id="terms" required />
+                <Checkbox id="terms" />
                 <label htmlFor="terms" className="text-sm">
                   Я согласен с <a href="#" className="text-blue-600 hover:underline">условиями использования</a>
                 </label>
