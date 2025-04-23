@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 // Список праздников по месяцам и дням
-const HOLIDAYS = {
+const HOLIDAYS: Record<string, { name: string; emoji: string }> = {
   "1-1": { name: "С Новым Годом!", emoji: "🎄" },
   "1-7": { name: "С Рождеством Христовым!", emoji: "✨" },
   "2-23": { name: "С Днём защитника Отечества!", emoji: "🛡️" },
@@ -79,7 +79,7 @@ const HolidayTicker = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style jsx="true">{`
         .ticker-container {
           width: 100%;
           overflow: hidden;
